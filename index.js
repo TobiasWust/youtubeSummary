@@ -15,20 +15,23 @@ async function getTranscript(videoId) {
 };
 
 async function getSummary(text) {
+  const shorterText = text.replace(/(\r\n|\n|\r)/gm, " ").replace(/ +(?= )/g, '');
   const response = await openai.createCompletion({
     model: "text-davinci-003",
-    prompt: `remove ads and summarize: \n ${text}`,
+    prompt: `remove ads and summarize: \n ${shorterText}`,
     temperature: 0.7,
     max_tokens: 256,
     top_p: 1,
     frequency_penalty: 0,
     presence_penalty: 0,
-  });
-  return response.data.choices[0].text;
+  }).catch(e =>
+    console.log('error:', e.response.data.error.message)
+  );
+  return response?.data?.choices[0].text;
 };
 
 const transcript = await getTranscript(process.argv.slice(2));
 const summary = await getSummary(transcript);
 
 // console.log(transcript);
-console.log(summary);
+// console.log(summary);
