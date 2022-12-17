@@ -1,62 +1,15 @@
+<!DOCTYPE html>
 <html>
 
 <head>
-  <!-- Include the animate.css file -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
-  <style>
-    /* Add some styling to the form */
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 300px;
-      margin: 0 auto;
-    }
-
-    /* Style the label and input elements */
-    label,
-    input {
-      margin: 10px 0;
-    }
-
-    /* Style the submit button */
-    input[type="submit"] {
-      background-color: red;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    /* Add a hover effect to the submit button */
-    input[type="submit"]:hover {
-      background-color: darkred;
-    }
-
-    /* Add a transition effect to the input elements */
-    input {
-      transition: all 0.5s;
-    }
-
-    /* Add a focus effect to the input elements */
-    input:focus {
-      outline: none;
-      box-shadow: 0 0 10px red;
-    }
-
-  </style>
+  <title>My Extension</title>
 </head>
 
 <body>
-  <form>
-    <!-- Add the "animated" and "bounceInDown" classes to the label element to animate it when the page loads -->
-    <label for="api-key" class="animated bounceInDown">API Key:</label>
-    <!-- Add the "animated" and "bounceInUp" classes to the input element to animate it when the page loads -->
-    <input type="text" id="api-key" name="api-key" class="animated bounceInUp">
-    <!-- Add the "animated" and "bounceInLeft" classes to the submit button to animate it when the page loads -->
-    <input type="submit" value="Save" class="animated bounceInLeft">
-  </form>
+  <h1>My Extension</h1>
+  <button id="getDataButton">Get Data</button>
+  <div id="dataContainer"></div>
+  <script src="popup.js"></script>
 </body>
 
 </html>
